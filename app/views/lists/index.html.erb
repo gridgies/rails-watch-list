@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/109669/pexels-photo-109669.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+  <div class="container">
+    <h1>Personal movie database</h1>
+    <p>Save any kind of movie and leave a review</p>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Lists overview</h1>
+
+  <ul>
+    <% @lists.each do |list| %>
+    <li>
+      <%= link_to list.name, list_path(list) %>
+    </li>
+    <% end %>
+  </ul>
+</div>
