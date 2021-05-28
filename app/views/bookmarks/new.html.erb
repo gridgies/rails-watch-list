@@ -1,7 +1,15 @@
-<h1>Create new bookmark</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3137890/pexels-photo-3137890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+  <div class="container">
+    <h1>Add a movie to the list <br>"<%= @list.name %>"</h1>
+  </div>
+</div>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+
+</div>
