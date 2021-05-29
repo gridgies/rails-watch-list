@@ -10,15 +10,15 @@
     <%= link_to "Add list", new_list_path, class: "btn btn-success mb-4" %>
   </div>
 
-  <h1>My lists</h1>
-    <div class="container d-flex justify-content-between">
-      <% @lists.each do |list| %>
-        <%= link_to list_path(list) do %>
-        <div class="card-list" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>')">
-          <%= list.name %>
-        </div>
-        <% end %>
+  <h2>Movie lists</h2>
+  <div class="pl-0 card-lists">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+      <div class="card-list" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>')">
+        <%= list.name %>
+      </div>
+    <% end %>
 
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>

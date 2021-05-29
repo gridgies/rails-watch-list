@@ -10,10 +10,16 @@
   </div>
   <div class="container movie-cards d-flex">
     <% @list.bookmarks.each do |bookmark| %>
-      <div class="card-movie mb-3" style="width: 24rem;">
+      <div class="card-movie mb-3" style="width: 16rem;">
         <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, class: "card-img-top" %>
         <div class="card-body">
-          <h5 class="card-title"><%= bookmark.movie.title %></h5>
+          <div class="card-head d-flex justify-content-between">
+            <h5 class="card-title_rating"><%= bookmark.movie.title %></h5>
+            <div>
+              <i class="fas fa-star" style="color: gold"></i>
+              <p><%= bookmark.movie.rating %></p>
+            </div>
+          </div>
           <p class="card-text"><%= bookmark.movie.overview %></p>
           <div class="d-flex justify-content-between">
             <div>
