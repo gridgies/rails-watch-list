@@ -8,7 +8,7 @@
 
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>
-    <%= f.association :movie, as: :select2 %>
+    <%= f.association :movie, as: :select, input_html: { class: "select2", id: "moviesearch" }%>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>

@@ -10,12 +10,13 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import { initSelect2 } from '../components/initSelect2';
+import { initSelect2 } from './plugins/init_select2';
 
+initSelect2();
 
-document.addEventListener("turbolinks:load", () => {
-  multipleSelect();
-});
+// document.addEventListener("turbolinks:load", () => {
+//   initSelect2();
+// });
 
 //= require select2
 
@@ -25,3 +26,28 @@ document.addEventListener("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+
+// const autoComplete = (query) => {
+//   const url = `http://tmdb.lewagon.com/search/movie?&query=${query}`;
+
+//   fetch(url)
+//     .then(response => response.json())
+//     .then((data) => {
+//       const movies = data.results;
+//       movies.forEach((movie) => {
+//         results.insertAdjacentHTML('beforeend', `<li>${movie.title}</li>`);
+//       });
+//     })
+//     .catch(console.error);
+
+// };
+
+// const search = document.querySelector("#moviesearch");
+
+// search.addEventListener('keyup', (event) => {
+//   const input = event.currentTarget.value;
+//   results.innerHTML = '';
+//   autoComplete(input);
+// });
