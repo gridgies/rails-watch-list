@@ -8,7 +8,7 @@
   <div class="d-flex justify-content-end">
     <%= link_to "Add movie", new_list_bookmark_path(@list), class: "btn btn-success mb-4" %>
   </div>
-  <div class="container movie-cards d-flex">
+  <div class="movie-cards">
     <% @list.bookmarks.each do |bookmark| %>
       <div class="card-movie mb-3" style="width: 16rem;">
         <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, class: "card-img-top" %>
