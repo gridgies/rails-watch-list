@@ -1,12 +1,13 @@
 .footer {
   margin-top: 30px;
-  background: #F4F4F4;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 60px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  border-top: 1px solid lightgrey;
 }
 .footer-links {
   display: flex;

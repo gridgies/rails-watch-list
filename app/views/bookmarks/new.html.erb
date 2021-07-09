@@ -4,13 +4,13 @@
   </div>
 </div>
 
-<div class="container">
-
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :comment %>
-    <%= f.association :movie, as: :select, input_html: { class: "select2", id: "moviesearch" }%>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
-
+<div class="container text-center">
+  <div class="form">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie, as: :select, input_html: { class: "select2", id: "moviesearch" }%>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
