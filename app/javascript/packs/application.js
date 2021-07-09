@@ -10,13 +10,12 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import { initSelect2 } from './plugins/init_select2';
+import { initSelect2 } from '../components/initSelect2';
 
-initSelect2();
+document.addEventListener("turbolinks:load", () => {
 
-// document.addEventListener("turbolinks:load", () => {
-//   initSelect2();
-// });
+  initSelect2();
+});
 
 //= require select2
 
@@ -28,26 +27,26 @@ initSelect2();
 // const imagePath = (name) => images(name, true)
 
 
+const form = document.querySelector('#search-movies');
 
-// const autoComplete = (query) => {
-//   const url = `http://tmdb.lewagon.com/search/movie?&query=${query}`;
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // <-- to prevent <form>'s native behaviour
+  const input = event.currentTarget.querySelector('.form-control');
+  results.innerHTML = '';
+  console.log(input.value)
+  searchMovies(input.value);
+});
 
-//   fetch(url)
-//     .then(response => response.json())
-//     .then((data) => {
-//       const movies = data.results;
-//       movies.forEach((movie) => {
-//         results.insertAdjacentHTML('beforeend', `<li>${movie.title}</li>`);
-//       });
-//     })
-//     .catch(console.error);
-
-// };
-
-// const search = document.querySelector("#moviesearch");
-
-// search.addEventListener('keyup', (event) => {
-//   const input = event.currentTarget.value;
-//   results.innerHTML = '';
-//   autoComplete(input);
-// });
+const searchMovies = (query) => {
+  fetch(`http://tmdb.lewagon.com/search/movie?&query=${query}`)
+    .then(response => response.json())
+    .then((data) => {
+      data.results.forEach((result) => {
+        const movie = `<li class="list-inline-item">
+          <img src="${result.poster_path}" alt="">
+          <p>${result.title}</p>
+        </li>`;
+        results.insertAdjacentHTML("beforeend", movie);
+      });
+    });
+};
